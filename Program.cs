@@ -17,8 +17,7 @@ namespace bancodados
         static void Main(string[] args)
         {
             string conexao = "server=localhost;user=root;passaword=;database=comida";
-
-           
+       
             while (true)
             {
                 Console.WriteLine("escolha uma das opçoes");
@@ -45,21 +44,14 @@ namespace bancodados
                     Console.Write("error");
                 }
             }
-
-
-           
         }
 
         private static void consultarfuncao_bancos(string conexao)
         {
             using (MySqlConnection cadastrar = new MySqlConnection(conexao))
             {
-                
-
                 try
                 {
-                
-
                     string query = "INSERT INTO comidas (nome, tipo, temperatura) VALUE (@nome, @tipo, @temperatura);";
 
                     using (MySqlCommand comando = new MySqlCommand(query, cadastrar))
@@ -86,23 +78,16 @@ namespace bancodados
 
                         comando.ExecuteNonQuery();
                     }
-
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-
-
-
-
-            }
-          
+            } 
         }
 
         private static void funcao_banco(string conexao )
         {
-
             using (MySqlConnection banco = new MySqlConnection(conexao))
             {
                 banco.Open();
@@ -119,8 +104,7 @@ namespace bancodados
                             Console.WriteLine(reader["tipo"]);
                             Console.WriteLine(reader["temperatura"]);
                             Console.WriteLine(reader["ID_comida"]);
-                        }
-                           
+                        }      
                     }
                 }
 
